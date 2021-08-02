@@ -1,6 +1,6 @@
 const ipUtils = require("ip-sub");
 
-const validateVRP = function (vrp) {
+const index = function (vrp) {
     const prefix = vrp.prefix;
     const maxLength = vrp.maxLength;
     const ta = vrp.ta;
@@ -53,7 +53,7 @@ const validateASpath = function (aspath) {
 };
 
 module.exports = {
-    validateVRP,
+    validateVRP: index,
     validatePrefix,
     validateIP,
     validateAS,

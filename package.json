@@ -4,7 +4,8 @@
   "description": "Utility to validate network-related input fields",
   "main": "validateVrp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "dotenv release-it"
   },
   "author": {
     "name": "Massimo Candela",
@@ -24,5 +25,52 @@
   ],
   "dependencies": {
     "ip-sub": "^1.0.26"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^4.0.0",
+    "release-it": "^14.10.1"
+  },
+  "release-it": {
+    "hooks": {
+      "before:init": [
+        "npm ci"
+      ],
+      "after:release": [
+        "echo Successfully released ${name} v${version} to ${repo.repository}."
+      ]
+    },
+    "git": {
+      "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
+      "requireCleanWorkingDir": true,
+      "requireBranch": "master",
+      "requireUpstream": true,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "Release v${version}",
+      "commitArgs": [],
+      "tag": true,
+      "tagName": null,
+      "tagAnnotation": "Release v${version}",
+      "tagArgs": [],
+      "push": true,
+      "pushArgs": [
+        "--follow-tags"
+      ],
+      "pushRepo": ""
+    },
+    "gitlab": {
+      "release": false
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true,
+      "releaseName": "v${version}",
+      "tokenRef": "GITHUB_TOKEN",
+      "origin": null,
+      "skipChecks": false
+    }
   }
 }

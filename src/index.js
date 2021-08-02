@@ -7,7 +7,7 @@ const validateVRP = function (vrp) {
 
     validatePrefix(prefix);
 
-    const cidr = ipUtils.getIpAndNetmask(prefix)[1];
+    const cidr = ipUtils.getIpAndCidr(prefix)[1];
     const maxCidr = ipUtils.getAddressFamily(prefix) === 4 ? 32 : 128;
 
     if (!Number.isInteger(maxLength) || cidr > maxLength || maxLength < 1 || maxLength > maxCidr) {

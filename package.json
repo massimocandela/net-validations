@@ -1,6 +1,6 @@
 {
   "name": "net-validations",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility to validate network-related input fields",
   "main": "src/index.js",
   "scripts": {

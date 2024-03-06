@@ -21,7 +21,7 @@ const validateVRP = function (vrp) {
         throw new Error ("The TA format is not valid. It must be a string.");
     }
 
-    if (expires && !Number.isInteger(maxLength)) {
+    if (expires && !Number.isInteger(expires)) {
         throw new Error (`The expires format is not valid. It must be a UNIX timestamp.`);
     }
 

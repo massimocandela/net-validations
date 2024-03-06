@@ -4,8 +4,11 @@ const validateVRP = function (vrp) {
     const prefix = vrp.prefix;
     const maxLength = vrp.maxLength;
     const ta = vrp.ta;
+    const expires = vrp.expires;
+    const asn = vrp.asn;
 
     validatePrefix(prefix);
+    validateAS(asn);
 
     const cidr = ipUtils.getIpAndCidr(prefix)[1];
     const maxCidr = ipUtils.getAddressFamily(prefix) === 4 ? 32 : 128;
@@ -16,6 +19,10 @@ const validateVRP = function (vrp) {
 
     if (typeof(ta) !== "string") {
         throw new Error ("The TA format is not valid. It must be a string.");
+    }
+
+    if (expires && !Number.isInteger(maxLength)) {
+        throw new Error (`The expires format is not valid. It must be a UNIX timestamp.`);
     }
 
 };

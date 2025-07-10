@@ -23,11 +23,11 @@
     "fields"
   ],
   "dependencies": {
-    "ip-sub": "^1.5.5"
+    "ip-sub": "^1.7.1"
   },
   "devDependencies": {
-    "dotenv-cli": "^7.4.2",
-    "release-it": "^17.4.0"
+    "dotenv-cli": "^8.0.0",
+    "release-it": "^19.0.3"
   },
   "release-it": {
     "hooks": {

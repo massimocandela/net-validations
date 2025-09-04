@@ -59,10 +59,29 @@ const validateASpath = function (aspath) {
     });
 };
 
+const isReservedAS = (asn) => {
+    // Special cases
+    if (asn === 0) return true;        // Reserved
+    if (asn === 23456) return true;    // AS_TRANS
+    if (asn === 65535) return true;    // Reserved
+
+    // Private use (16-bit)
+    if (asn >= 64512 && asn <= 65534) return true;
+
+    // Documentation/example
+    if (asn >= 64496 && asn <= 64511) return true;
+
+    // Private use (32-bit)
+    if (asn >= 4200000000 && asn <= 4294967294) return true;
+
+    return false;
+}
+
 module.exports = {
     validateVRP,
     validatePrefix,
     validateIP,
     validateAS,
+    isReservedAS,
     validateASpath
 };

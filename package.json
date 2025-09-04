@@ -26,8 +26,8 @@
     "ip-sub": "^1.7.1"
   },
   "devDependencies": {
-    "dotenv-cli": "^8.0.0",
-    "release-it": "^19.0.3"
+    "dotenv-cli": "^10.0.0",
+    "release-it": "^19.0.4"
   },
   "release-it": {
     "hooks": {

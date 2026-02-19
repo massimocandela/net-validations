@@ -77,11 +77,18 @@ const isReservedAS = (asn) => {
     return false;
 }
 
+const validateUsableIP = function (ip) {
+    if (!ipUtils.isValidIP(ip) || ipUtils.isReservedIP(ip)) {
+        throw new Error ("The IP format is not valid");
+    }
+};
+
 module.exports = {
     validateVRP,
     validatePrefix,
     validateIP,
     validateAS,
     isReservedAS,
-    validateASpath
+    validateASpath,
+    validateUsableIP
 };

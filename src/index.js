@@ -112,5 +112,3 @@ module.exports = {
     validateUsableIP,
     validateIpOrPrefix
 };
-
-validateUsableIP("124.0.0.1");

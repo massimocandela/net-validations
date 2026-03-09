@@ -96,6 +96,12 @@ const validateUsableIP = function (ip) {
     }
 };
 
+const validateIpOrPrefix = function (ipOrPrefix) {
+    if (!ipUtils.isValidPrefix(ipOrPrefix) && !ipUtils.isValidIP(ipOrPrefix)) {
+        throw new Error("The input must be an IP or a prefix");
+    }
+};
+
 module.exports = {
     validateVRP,
     validatePrefix,
@@ -103,7 +109,8 @@ module.exports = {
     validateAS,
     isReservedAS,
     validateASpath,
-    validateUsableIP
+    validateUsableIP,
+    validateIpOrPrefix
 };
 
-validateUsableIP("124.0.0.1")
+validateUsableIP("124.0.0.1");
